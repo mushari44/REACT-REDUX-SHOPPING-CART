@@ -21,7 +21,6 @@ export default function ProductTile({ product }) {
   const cartItem = cart.find((item) => item.id === id);
   const isInCart = !!cartItem;
   const quantity = cartItem ? cartItem.quantity : 1;
-  const unitPrice = price / quantity; // Calculate the unit price
 
   async function handleAddToCart() {
     dispatch(addToCart(product));
@@ -53,10 +52,10 @@ export default function ProductTile({ product }) {
   async function handleIncreaseQuantity() {
     if (!disabled) {
       setDisabled(true);
-      setTimeout(() => setDisabled(false), 400); // 1000ms = 1 second
+      setTimeout(() => setDisabled(false), 400);
     }
     const newQuantity = quantity + 1;
-    const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
+    const newPrice = price * newQuantity; // Calculate the new price based on the new quantity
     dispatch(updateQuantity({ id, quantity: newQuantity }));
     try {
       await axios.put(
@@ -75,11 +74,11 @@ export default function ProductTile({ product }) {
   async function handleDecreaseQuantity() {
     if (!disabled) {
       setDisabled(true);
-      setTimeout(() => setDisabled(false), 400); // 1000ms = 1 second
+      setTimeout(() => setDisabled(false), 400);
     }
     if (quantity > 1) {
       const newQuantity = quantity - 1;
-      const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
+      const newPrice = price * newQuantity; // Calculate the new price based on the new quantity
       dispatch(updateQuantity({ id, quantity: newQuantity }));
       try {
         await axios.put(
