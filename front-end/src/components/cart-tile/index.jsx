@@ -6,12 +6,13 @@ import {
 } from "../../store/slices/cart-slice";
 import axios from "axios";
 import QuantitySelector from "../Quantity-Component";
+import { useState } from "react";
 
 export default function CartTile({ cartItem }) {
   const dispatch = useDispatch();
   const { id, image, title, price, _id, quantity } = cartItem;
   const unitPrice = price / quantity; // Calculate the unit price
-
+  const [disabled, setDisabled] = useState(false);
   async function handleRemoveFromCart() {
     dispatch(removeFromCart(id));
     console.log(cartItem);
@@ -25,6 +26,10 @@ export default function CartTile({ cartItem }) {
   }
 
   async function handleIncreaseQuantity() {
+    if (!disabled) {
+      setDisabled(true);
+      setTimeout(() => setDisabled(false), 400); // 1000ms = 1 second
+    }
     const newQuantity = quantity + 1;
     const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
     dispatch(updateQuantity({ id, quantity: newQuantity }));
@@ -36,13 +41,19 @@ export default function CartTile({ cartItem }) {
           price: newPrice,
         }
       );
+
       dispatch(fetchCartItems());
     } catch (error) {
       console.error("Error updating quantity", error);
+    } finally {
     }
   }
 
   async function handleDecreaseQuantity() {
+    if (!disabled) {
+      setDisabled(true);
+      setTimeout(() => setDisabled(false), 400); // 1000ms = 1 second
+    }
     if (quantity > 1) {
       const newQuantity = quantity - 1;
       const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
@@ -73,6 +84,7 @@ export default function CartTile({ cartItem }) {
             quantity={quantity}
             onDecrease={handleDecreaseQuantity}
             onIncrease={handleIncreaseQuantity}
+            disabled={disabled}
           ></QuantitySelector>
         </div>
       </div>

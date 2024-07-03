@@ -6,14 +6,14 @@ import {
   updateQuantity,
 } from "../../store/slices/cart-slice";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import QuantitySelector from "../Quantity-Component";
 
 export default function ProductTile({ product }) {
   const { id, image, title, rating, price } = product;
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
+  const [disabled, setDisabled] = useState(false);
   useEffect(() => {
     dispatch(fetchCartItems());
   }, [dispatch]);
@@ -51,6 +51,10 @@ export default function ProductTile({ product }) {
   }
 
   async function handleIncreaseQuantity() {
+    if (!disabled) {
+      setDisabled(true);
+      setTimeout(() => setDisabled(false), 400); // 1000ms = 1 second
+    }
     const newQuantity = quantity + 1;
     const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
     dispatch(updateQuantity({ id, quantity: newQuantity }));
@@ -69,6 +73,10 @@ export default function ProductTile({ product }) {
   }
 
   async function handleDecreaseQuantity() {
+    if (!disabled) {
+      setDisabled(true);
+      setTimeout(() => setDisabled(false), 400); // 1000ms = 1 second
+    }
     if (quantity > 1) {
       const newQuantity = quantity - 1;
       const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
@@ -116,6 +124,7 @@ export default function ProductTile({ product }) {
                 quantity={quantity}
                 onIncrease={handleIncreaseQuantity}
                 onDecrease={handleDecreaseQuantity}
+                disabled={disabled}
               />
               <button
                 className="bg-red-950 hover:bg-red-700 text-white rounded-lg font-bold py-2 px-4 ml-3 transition-colors duration-300"
