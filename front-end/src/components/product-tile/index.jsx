@@ -26,7 +26,10 @@ export default function ProductTile({ product }) {
   async function handleAddToCart() {
     dispatch(addToCart(product));
     try {
-      await axios.post("http://127.0.0.1:8888/addToCart", product);
+      await axios.post(
+        "https://shopping-cart-server.mushari-alothman.uk/addToCart",
+        product
+      );
       dispatch(fetchCartItems());
     } catch (error) {
       console.error("Error adding to cart", error);
@@ -38,7 +41,7 @@ export default function ProductTile({ product }) {
       dispatch(removeFromCart(id));
       try {
         await axios.delete(
-          `http://127.0.0.1:8888/deleteProduct/${cartItem._id}`
+          `https://shopping-cart-server.mushari-alothman.uk/deleteProduct/${cartItem._id}`
         );
         dispatch(fetchCartItems());
       } catch (error) {
@@ -52,10 +55,13 @@ export default function ProductTile({ product }) {
     const newPrice = unitPrice * newQuantity; // Calculate the new price based on the new quantity
     dispatch(updateQuantity({ id, quantity: newQuantity }));
     try {
-      await axios.put(`http://127.0.0.1:8888/updateQuantity/${cartItem._id}`, {
-        quantity: newQuantity,
-        price: newPrice,
-      });
+      await axios.put(
+        `https://shopping-cart-server.mushari-alothman.uk/updateQuantity/${cartItem._id}`,
+        {
+          quantity: newQuantity,
+          price: newPrice,
+        }
+      );
       dispatch(fetchCartItems());
     } catch (error) {
       console.error("Error updating quantity", error);
@@ -69,7 +75,7 @@ export default function ProductTile({ product }) {
       dispatch(updateQuantity({ id, quantity: newQuantity }));
       try {
         await axios.put(
-          `http://127.0.0.1:8888/updateQuantity/${cartItem._id}`,
+          `https://shopping-cart-server.mushari-alothman.uk/updateQuantity/${cartItem._id}`,
           {
             quantity: newQuantity,
             price: newPrice,

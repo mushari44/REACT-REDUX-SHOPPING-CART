@@ -6,7 +6,9 @@ import axios from "axios";
 export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async () => {
-    const response = await axios.get("http://127.0.0.1:8888/myShoppingCart");
+    const response = await axios.get(
+      "https://shopping-cart-server.mushari-alothman.uk/myShoppingCart"
+    );
     return response.data;
   }
 );

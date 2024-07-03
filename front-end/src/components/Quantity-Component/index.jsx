@@ -1,4 +1,3 @@
-// /src/components/QuantitySelector/QuantitySelector.js
 
 import React from "react";
 
