@@ -28,7 +28,7 @@ const ShoppingCart = mongoose.model("ShoppingCart", schema);
 const PORT = process.env.PORT || 8888;
 
 app.get("/", (req, res) => {
-  res.send("Connected to the server ");
+  res.send("Connected using Heroku server");
 });
 
 app.get("/myShoppingCart", async (req, res) => {
