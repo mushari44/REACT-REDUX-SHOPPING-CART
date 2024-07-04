@@ -8,7 +8,7 @@ export default function Header() {
 
         <Link to={"/"}>
           <div className="text-center sm:text-left">
-            <h1 className="text-white font-bold text-2xl sm:text-3xl md:text-4xl cursor-pointer tracking-tight transition-transform transform hover:scale-105 hover:text-gray-300">
+            <h1 id="title" className="font-bold text-2xl sm:text-3xl md:text-5xl cursor-pointer tracking-tight transition-transform transform hover:scale-105 hover:text-gray-300">
               REACT REDUX SHOPPING CART
             </h1>
           </div>

@@ -20,11 +20,11 @@
 }
 
 :root {
-  --bg-color-light: #f8f9fa; 
-  --bg-color-dark: #1c1c1c; 
+  --bg-color-light: #f8f9fa;
+  --bg-color-dark: #1c1c1c;
   --text-color-light: #333333;
-  --text-color-dark: #e0e0e0; 
-  --bg-product-light: #ffffff; 
+  --text-color-dark: #e0e0e0;
+  --bg-product-light: #ffffff;
   --bg-product-dark: #08080854;
 }
 
@@ -32,12 +32,23 @@ html.light {
   --bg-color: var(--bg-color-light);
   --text-color: var(--text-color-light);
   --product-color: var(--bg-product-light);
+
+  --title-text-color: linear-gradient(
+    180deg,
+    rgb(255, 255, 255) 10%,
+    rgb(103, 157, 195) 100%
+  );
 }
 
 html.dark {
   --bg-color: var(--bg-color-dark);
   --text-color: var(--text-color-dark);
   --product-color: var(--bg-product-dark);
+  --title-text-color: linear-gradient(
+    180deg,
+    rgb(0, 0, 0) 0%,
+    rgb(135, 147, 214) 100%
+  );
 }
 
 body {
@@ -62,4 +73,12 @@ body {
 
 .animate-rotate {
   animation: rotate 0.6s linear;
+}
+
+#title {
+  background: var(--title-text-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
 }
