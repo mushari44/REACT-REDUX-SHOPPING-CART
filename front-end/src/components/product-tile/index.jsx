@@ -100,11 +100,11 @@ export default function ProductTile({ product }) {
     <div className="flex p-1  sm:w-full w-44 mt-20  sm:mt-40  sm:mb-5  items-center justify-center h-80">
       <div className="group  flex flex-col justify-center items-center bg-white border-2 border-gray-200 gap-3 p-3 md:h-[470px] w-full sm:w-[300px] mt-12 sm:mt-0 mx-2 rounded-xl shadow-lg hover:shadow-black transition-shadow duration-400">
         <div className="self-start w-full items-center justify-center ">
-          <h2 className="text-amber-500 ml-3 mt-1 font-extrabold text-lg">
+          <h2 className="text-amber-500 ml-3 mt-1 font-extrabold text-lg items-center justify-center">
             {rating?.rate}
           </h2>
         </div>
-        <div className="h-[100px] sm:h-[200px] flex items-center justify-center">
+        <div className="h-[100px]  w-auto sm:h-[200px] flex items-center justify-center">
           <img
             src={image}
             alt={title}
