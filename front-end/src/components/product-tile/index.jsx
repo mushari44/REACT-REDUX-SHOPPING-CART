@@ -108,7 +108,7 @@ export default function ProductTile({ product }) {
           <img
             src={image}
             alt={title}
-            className="object-cover h-full w-full rounded-lg select-none"
+            className="object-cover h-full w-auto rounded-lg select-none"
           />
         </div>
         <div className="w-full text-center mt-3">
