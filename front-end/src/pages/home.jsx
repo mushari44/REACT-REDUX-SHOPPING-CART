@@ -10,11 +10,13 @@ export default function Home() {
     setLoading(true);
     try {
       const response = await fetch("https://fakestoreapi.com/products");
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
       const data = await response.json();
       setProducts(data);
-      console.log(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching products:", error);
     } finally {
       setLoading(false);
     }
@@ -25,23 +27,27 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=" bg-gray-50   flex items-center justify-center w-full ">
+    <div className="bg-gray-50 min-h-screen flex items-center justify-center">
       {loading ? (
-        <div className="min-h-screen w-full flex justify-center items-center">
+        <div className="flex justify-center items-center w-full h-full">
           <ProgressBar
-            width={"150"}
-            height={"150"}
+            width={150}
+            height={150}
             barColor="rgb(127,29,29)"
             borderColor="black"
           />
         </div>
       ) : (
-        <div className="  min-h-[80vh] grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-11/12 p-3 gap-6 m-20">
-          {products && products.length
-            ? products.map((productItem) => (
-                <ProductTile key={productItem.id} product={productItem} />
-              ))
-            : null}
+        <div className=" grid gap-0 grid-cols-2  md:grid-cols-3 lg:grid-cols-4 w-full max-w-screen-xl mt-20">
+          {products && products.length > 0 ? (
+            products.map((productItem) => (
+              <ProductTile key={productItem.id} product={productItem} />
+            ))
+          ) : (
+            <p className="text-gray-600 text-center w-full">
+              No products found
+            </p>
+          )}
         </div>
       )}
     </div>

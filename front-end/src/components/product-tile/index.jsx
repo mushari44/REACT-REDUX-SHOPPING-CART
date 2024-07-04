@@ -14,6 +14,7 @@ export default function ProductTile({ product }) {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [disabled, setDisabled] = useState(false);
+
   useEffect(() => {
     dispatch(fetchCartItems());
   }, [dispatch]);
@@ -96,14 +97,14 @@ export default function ProductTile({ product }) {
   }
 
   return (
-    <div className="p-1">
-      <div className="group flex flex-col items-center bg-white border-2 border-gray-200 gap-3 p-3 h-[300px] sm:h-[470px] md:w-[300px] mt-10 mx-2 rounded-xl shadow-lg hover:shadow-black transition-shadow duration-400">
-        <div className="self-start w-full">
-          <h2 className="text-amber-500 ml-3 mt-2 font-extrabold text-lg">
+    <div className="flex p-1  sm:w-full w-44 mt-20  sm:mt-40  sm:mb-5  items-center justify-center h-80">
+      <div className="group  flex flex-col justify-center items-center bg-white border-2 border-gray-200 gap-3 p-3 md:h-[470px] w-full sm:w-[300px] mt-12 sm:mt-0 mx-2 rounded-xl shadow-lg hover:shadow-black transition-shadow duration-400">
+        <div className="self-start w-full items-center justify-center ">
+          <h2 className="text-amber-500 ml-3 mt-1 font-extrabold text-lg">
             {rating?.rate}
           </h2>
         </div>
-        <div className="h-[150px] sm:h-[200px] flex items-center justify-center">
+        <div className="h-[100px] sm:h-[200px] flex items-center justify-center">
           <img
             src={image}
             alt={title}
@@ -111,12 +112,12 @@ export default function ProductTile({ product }) {
           />
         </div>
         <div className="w-full text-center mt-3">
-          <h1 className="font-semibold text-gray-800 text-base sm:text-sm">
+          <h1 className="font-semibold text-gray-800 sm:text-base text-sm truncate md:whitespace-normal">
             {title}
           </h1>
           <p className="text-red-600 font-extrabold mt-3">{price} $</p>
         </div>
-        <div className="flex items-center justify-center w-full mt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center w-full mt-2 gap-3">
           {isInCart ? (
             <>
               <QuantitySelector
@@ -126,7 +127,7 @@ export default function ProductTile({ product }) {
                 disabled={disabled}
               />
               <button
-                className="bg-red-950 hover:bg-red-700 text-white rounded-lg font-bold py-2 px-4 ml-3 transition-colors duration-300"
+                className="bg-red-950 hover:bg-red-700 text-sm md:text-base text-white rounded-lg font-bold sm:py-2 sm:px-4 px-3 py-1  transition-colors duration-300"
                 onClick={handleRemoveFromCart}
               >
                 Remove from cart

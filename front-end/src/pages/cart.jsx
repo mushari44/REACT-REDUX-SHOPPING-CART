@@ -22,25 +22,29 @@ export default function Cart() {
     <div className="flex justify-center ">
       {cart && cart.length ? (
         <>
-          <div className="min-w-[100vw] grid md:grid-cols-2 max-w-6xl mx-auto justify-start items-start m-32">
-            <div className="flex flex-col justify-center items-center p-3 w-full">
+          <div className="md:min-w-[100vw]   grid grid-cols-2 max-w-6xl mx-auto justify-start items-start m-32">
+            <div className="flex flex-col w-56  md:flex-col justify-center items-center p-3 md:w-full">
               {cart.map((item) => (
                 <CartTile key={item.id} cartItem={item} />
               ))}
             </div>
-            <div className="flex flex-col border-4 shadow-xl p-5 space-y-5 mt-10 fixed right-60 top-32">
-              <h1 className="font-bold text-lg text-red-950">
+            <div className=" w-40 md:w-64 flex flex-col border-4 shadow-xl p-5 md:space-y-5 space-y-2 mt-10 fixed md:right-60 md:top-32 right-0 text-center ">
+              <h1 className="font-bold md:text-lg text-red-950 text-sm">
                 Your Cart Summary
               </h1>
               <p>
-                <span className="text-gray-800 font-bold">Total Items: </span>
-                <span className="text-red-600 font-extrabold">
+                <span className="text-gray-800 font-bold md:text-lg ">
+                  Total Items:{" "}
+                </span>
+                <span className="text-red-600 font-extrabold md:text-lg">
                   {totalItems}
                 </span>
               </p>
               <p>
-                <span className="text-gray-800 font-bold">Total Amount: </span>
-                <span className="text-red-600 font-extrabold">
+                <span className="text-gray-800 font-bold md:text-lg">
+                  Total Amount:{" "}
+                </span>
+                <span className="text-red-600  text-lg font-bold ">
                   {totalCart.toFixed(2)} $ {/* Fixed to 2 decimal places */}{" "}
                 </span>
               </p>
