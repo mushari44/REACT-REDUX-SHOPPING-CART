@@ -30,7 +30,7 @@ const ThemeToggle = () => {
       </div>
       <div>
         <span className="text-white md:text-base text-sm">
-          change theme to {theme}
+          change theme to {theme === "light" ? "DARK" : "LIGHT"}
         </span>
       </div>
     </div>
