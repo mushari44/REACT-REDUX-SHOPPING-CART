@@ -81,4 +81,5 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: fit-content;
+  transition: background-color 1s ease, color 1s ease;
 }
