@@ -38,7 +38,7 @@ export default function Home() {
           />
         </div>
       ) : (
-        <div className=" grid gap-0 grid-cols-2  md:grid-cols-3 lg:grid-cols-4 w-full max-w-screen-xl mt-20">
+        <div className=" grid  grid-cols-2  md:grid-cols-3 lg:grid-cols-4 w-full max-w-screen-xl mt-20 mb-20">
           {products && products.length > 0 ? (
             products.map((productItem) => (
               <ProductTile key={productItem.id} product={productItem} />
