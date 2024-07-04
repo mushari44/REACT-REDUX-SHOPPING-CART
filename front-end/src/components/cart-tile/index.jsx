@@ -75,11 +75,14 @@ export default function CartTile({ cartItem }) {
   }
 
   return (
-    <div className="border-4 p-2 mt-7 border-gray-200 shadow-lg hover:shadow-black transition-shadow duration-400 flex flex-col sm:flex-row items-center justify-between bg-white  mb-3 w-full rounded-xl sm:ml-5 ">
+    <div
+      id="product"
+      className="border-4 p-2 mt-7  border-gray-200 shadow-lg hover:shadow-black transition-shadow duration-400 flex flex-col sm:flex-row items-center justify-between  mb-3 w-full rounded-xl sm:ml-5 "
+    >
       <div className="flex p-3  w-full flex-col sm:flex-row items-center">
         <img className="h-28 w-28 rounded-lg" src={image} alt={title}></img>
         <div className="ml-0 sm:ml-5 self-start space-y-5 w-full text-center sm:text-left">
-          <h1 className=" md:text-xl text-black font-bold text-xs">{title}</h1>
+          <h1 className=" md:text-xl  font-bold text-xs">{title}</h1>
           <p className="text-red-600 font-extrabold">{price}</p>
           <QuantitySelector
             quantity={quantity}

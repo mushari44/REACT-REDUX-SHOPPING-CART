@@ -29,21 +29,17 @@ export default function Cart() {
               ))}
             </div>
             <div className=" w-40 md:w-64 flex flex-col border-4 shadow-xl p-5 md:space-y-5 space-y-2 mt-10 fixed md:right-60 md:top-32 right-0 text-center ">
-              <h1 className="font-bold md:text-lg text-red-950 text-sm">
+              <h1 className="font-bold md:text-lg    text-sm">
                 Your Cart Summary
               </h1>
               <p>
-                <span className="text-gray-800 font-bold md:text-lg ">
-                  Total Items:{" "}
-                </span>
+                <span className=" font-bold md:text-lg ">Total Items: </span>
                 <span className="text-red-600 font-extrabold md:text-lg">
                   {totalItems}
                 </span>
               </p>
               <p>
-                <span className="text-gray-800 font-bold md:text-lg">
-                  Total Amount:{" "}
-                </span>
+                <span className=" font-bold md:text-lg">Total Amount: </span>
                 <span className="text-red-600  text-lg font-bold ">
                   {totalCart.toFixed(2)} $ {/* Fixed to 2 decimal places */}{" "}
                 </span>

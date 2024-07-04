@@ -97,8 +97,11 @@ export default function ProductTile({ product }) {
   }
 
   return (
-    <div className="flex p-1  sm:w-full w-44 mt-20  sm:mt-40  sm:mb-5  items-center justify-center h-80">
-      <div className="group  flex flex-col justify-center items-center bg-white border-2 border-gray-200 gap-3 p-3 md:h-[470px] w-full sm:w-[300px] mt-12 sm:mt-0 mx-2 rounded-xl shadow-lg hover:shadow-black transition-shadow duration-400">
+    <div className="  flex p-1  sm:w-full w-44 mt-20  sm:mt-40  sm:mb-5  items-center justify-center h-80">
+      <div
+        id="product"
+        className="group  flex flex-col justify-center items-center border-2 border-gray-200 gap-3 p-3 md:h-[470px] w-full sm:w-[300px] mt-12 sm:mt-0 mx-2 rounded-xl shadow-lg hover:shadow-black transition-shadow duration-400"
+      >
         <div className="self-start w-full items-center justify-center ">
           <h2 className="text-amber-500 ml-3 mt-1 font-extrabold text-lg items-center justify-center">
             {rating?.rate}
@@ -112,7 +115,7 @@ export default function ProductTile({ product }) {
           />
         </div>
         <div className="w-full text-center mt-3">
-          <h1 className="font-semibold text-gray-800 sm:text-base text-sm truncate md:whitespace-normal">
+          <h1 className="font-semibold sm:text-base text-sm truncate md:whitespace-normal">
             {title}
           </h1>
           <p className="text-red-600 font-extrabold mt-3">{price} $</p>

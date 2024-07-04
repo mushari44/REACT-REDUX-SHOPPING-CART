@@ -15,7 +15,7 @@ export default function QuantitySelector({
       >
         -
       </button>
-      <span className="px-3 select-none">{quantity}</span>
+      <span className="px-3 select-none ">{quantity}</span>
       <button
         className="bg-gray-300 text-gray-800 font-bold py-1 px-2 rounded-r hover:bg-gray-400 focus:outline-none"
         onClick={onIncrease}

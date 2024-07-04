@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @keyframes gradient-x {
   0% {
     background-position: 0% 50%;
@@ -10,10 +11,55 @@
   }
   100% {
     background-position: 0% 50%;
-  } 
+  }
 }
 
 .animate-gradient-x {
   animation: gradient-x 8s ease infinite;
   background-size: 40% 50%;
+}
+
+:root {
+  --bg-color-light: #f8f9fa; 
+  --bg-color-dark: #1c1c1c; 
+  --text-color-light: #333333;
+  --text-color-dark: #e0e0e0; 
+  --bg-product-light: #ffffff; 
+  --bg-product-dark: #08080854;
+}
+
+html.light {
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-light);
+  --product-color: var(--bg-product-light);
+}
+
+html.dark {
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --product-color: var(--bg-product-dark);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 1s ease, color 1s ease;
+}
+
+#product {
+  background: var(--product-color);
+  transition: background 1s ease;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 0.6s linear;
 }
